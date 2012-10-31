@@ -28,6 +28,7 @@ public class MiRobot extends Agent {
     char camino[][]; //Camino que debe seguir el robot. Será el resultado del A*
     int expandidos[][]; //Orden de los nodos expandidos. Será el resultado del A*
     int tamaño; //Tamaño del mundo
+    int cuentaNodos; //Contador de nodos expandidos
 
     public MiRobot(Vector3d position, String name, Practica1 practica1) {
         super(position, name);
@@ -57,15 +58,14 @@ public class MiRobot extends Agent {
     //Calcula el A*
     public int AEstrella() {
         int result = -1;
-        int contador = 0;
 
         Nodo n;
         ArrayList<Nodo> interior = new ArrayList<Nodo>();
         ArrayList<Nodo> fronteraAux = new ArrayList<Nodo>();
         PriorityQueue<Nodo> frontera = new PriorityQueue<Nodo>();
-        Nodo original = new Nodo(origen, 1, null, tamaño);
+        Nodo original = new Nodo(origen, 1, null, tamaño, destino);
 
-        expandidos[original.x][original.y] = contador;
+        expandidos[original.x][original.y] = cuentaNodos;
 
         frontera.add(original);
         fronteraAux.add(original);
@@ -88,8 +88,8 @@ public class MiRobot extends Agent {
                 return 0;
             }
 
-            contador++;
-            expandidos[n.x][n.y] = contador;
+            cuentaNodos++;
+            expandidos[n.x][n.y] = cuentaNodos;
             
             n.generarHijos(mundo, destino);
 
@@ -98,7 +98,7 @@ public class MiRobot extends Agent {
                     int g2 = n.g + 1;
 
                     if (!frontera.contains(hijo)) {
-                        System.out.println(hijo);
+                        System.out.println(g2);
                         hijo.g = g2;
                         hijo.h = tamaño - hijo.y;
                         hijo.f = hijo.g + hijo.h;
@@ -108,7 +108,7 @@ public class MiRobot extends Agent {
                     } else {
                         hijo = fronteraAux.get(fronteraAux.indexOf(hijo));
                         if (g2 > hijo.g) {
-                            System.out.println(hijo);
+                            System.out.println(g2);
                             hijo.padre = n;
                             hijo.g = g2;
                             hijo.h = tamaño - hijo.x;
@@ -190,6 +190,8 @@ public class MiRobot extends Agent {
                 }
                 System.out.println();
             }
+            
+            System.out.println("######### Nodos totales: "+cuentaNodos);
             
             // init controller
             controller = new FuzzyController();
