@@ -5,6 +5,7 @@
 
 package practica2fia;
 
+import java.util.ArrayList;
 import javax.media.j3d.Transform3D;
 import javax.vecmath.Point3d;
 import simbad.sim.*;
@@ -59,6 +60,37 @@ public class MiRobot extends Agent{
         public int AEstrella(){
             int result = 0;
 
+            Nodo n;
+            ArrayList<Nodo> interior = new ArrayList<Nodo>();
+            ArrayList<Nodo> frontera = new ArrayList<Nodo>();
+            frontera.add(new Nodo(origen, 1, null));
+            
+            while(!frontera.isEmpty()){
+                n = frontera.get(0); // TODO: obtener el de menor f, y de esos, elegir el mejor
+                frontera.remove(0);
+                interior.add(n);
+                
+                if (n.y == tamaño-1 && n.x == destino) {// si n es meta
+                    // reproducir camino recorriendo los padres
+                    break;
+                }
+                
+                n.generarHijos(mundo);
+                
+                for (Nodo hijo : n.hijos) {
+                    if (!interior.contains(hijo)) {
+                        int g2 = n.g +1;
+                        
+                        if (frontera.contains(hijo)) {
+                            
+                        }
+                        
+                    }
+                }
+                
+                
+            }
+            
             // si funciona bien, tiene que devolver un 0
             return result;
         }
