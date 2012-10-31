@@ -57,28 +57,40 @@ public class MiRobot extends Agent {
     //Calcula el A*
     public int AEstrella() {
         int result = -1;
+        int contador = 0;
 
         Nodo n;
         ArrayList<Nodo> interior = new ArrayList<Nodo>();
         ArrayList<Nodo> fronteraAux = new ArrayList<Nodo>();
         PriorityQueue<Nodo> frontera = new PriorityQueue<Nodo>();
-        Nodo original = new Nodo(origen, 1, null,tamaño);
-        
+        Nodo original = new Nodo(origen, 1, null, tamaño);
+
+        expandidos[original.x][original.y] = contador;
+
         frontera.add(original);
         fronteraAux.add(original);
 
         while (!frontera.isEmpty()) {
-            n= frontera.remove();
+            n = frontera.remove();
             fronteraAux.remove(n);
 //            n = frontera.get(0); // TODO: obtener el de menor f, y de esos, elegir el mejor
 //            frontera.remove(0);
             interior.add(n);
+            
 
-            if (n.esMeta(destino)) {// si n es meta
+            if (n.esMeta(destino)) {
+                Nodo caminante = n;
+                while(caminante.padre != null){
+                    camino[caminante.x][caminante.y] = 'X';
+                    caminante = caminante.padre;
+                }
                 // reproducir camino recorriendo los padres
                 return 0;
             }
 
+            contador++;
+            expandidos[n.x][n.y] = contador;
+            
             n.generarHijos(mundo, destino);
 
             for (Nodo hijo : n.hijos) {
@@ -155,6 +167,30 @@ public class MiRobot extends Agent {
             System.err.println("Error en el A*");
             throw new Error("Error en el A*");
         } else {
+            for (int i = 0; i < expandidos.length; i++) {
+                for (int col : expandidos[i]) {
+                    /*if(col == -1){
+                        System.out.print(col+" ");
+                    }else if (col < 10) {
+                        System.out.print("[00" + col + "]");
+                    } else if (col < 100) {
+                        System.out.print("[0" + col + "]");
+                    } else {
+                        System.out.print("[" + col + "]");
+                    }*/
+                    System.out.print(col+" ");
+                }
+                System.out.println();
+
+            }
+            
+            for (char[] fila : camino) {
+                for (char c : fila) {
+                    System.out.print(c+" ");
+                }
+                System.out.println();
+            }
+            
             // init controller
             controller = new FuzzyController();
         }
