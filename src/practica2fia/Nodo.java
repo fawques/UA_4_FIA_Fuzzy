@@ -49,14 +49,14 @@ public class Nodo implements Comparable {
                 hijos.add(aux);
             }
         }
-        if (x > 0) {
-            if (mundo[x - 1][y] == 0) { // Abajo
-                hijos.add(new Nodo(x - 1, y, this, tamano, destino));
-            }
-        }
         if (x < tamano) {
             if (mundo[x + 1][y] == 0) { // Arriba
                 hijos.add(new Nodo(x + 1, y, this, tamano, destino));
+            }
+        }
+        if (x > 0) {
+            if (mundo[x - 1][y] == 0) { // Abajo
+                hijos.add(new Nodo(x - 1, y, this, tamano, destino));
             }
         }
         if (y > 0) {
