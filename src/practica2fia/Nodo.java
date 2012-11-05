@@ -66,6 +66,15 @@ public class Nodo implements Comparable {
         }
 
     }
+    
+    public void actualizarG(int nuevoG){
+        g = nuevoG;
+        f = g + h;
+    }
+    public void actualizarH(int nuevoH){
+        h = nuevoH;
+        f = g + h;
+    }
 
     public boolean equals(Nodo n) {
         return x == n.x && y == n.y;

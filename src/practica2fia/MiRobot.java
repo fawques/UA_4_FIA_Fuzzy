@@ -98,21 +98,18 @@ public class MiRobot extends Agent {
                     int g2 = n.g + 1;
 
                     if (!frontera.contains(hijo)) {
-                        System.out.println(g2);
                         hijo.g = g2;
-                        hijo.h = Math.abs(destino - hijo.x) + Math.abs(tamaño - 1 - hijo.y);// TODO: hacerlo como método de nodo
-                        hijo.f = hijo.g + hijo.h;
+                        hijo.actualizarH(Math.abs(destino - hijo.x) + Math.abs(tamaño - 1 - hijo.y));
+                        
                         hijo.padre = n;
                         frontera.add(hijo);
                         fronteraAux.add(hijo);
                     } else {
                         hijo = fronteraAux.get(fronteraAux.indexOf(hijo));
                         if (g2 > hijo.g) {
-                            System.out.println(g2);
                             hijo.padre = n;
                             hijo.g = g2;
-                            hijo.h = Math.abs(destino - hijo.x) + Math.abs(tamaño - 1 - hijo.y);// TODO: hacerlo como método de nodo
-                            hijo.f = hijo.g + hijo.h;
+                            hijo.actualizarH(Math.abs(destino - hijo.x) + Math.abs(tamaño - 1 - hijo.y));
                         }
                     }
 
