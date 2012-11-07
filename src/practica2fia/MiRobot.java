@@ -58,6 +58,7 @@ public class MiRobot extends Agent {
     //Calcula el A*
     public int AEstrella() {
         int result = -1;
+        cuentaNodos = 0;
 
         Nodo n;
         ArrayList<Nodo> interior = new ArrayList<Nodo>();
@@ -76,21 +77,22 @@ public class MiRobot extends Agent {
 //            n = frontera.get(0); // TODO: obtener el de menor f, y de esos, elegir el mejor
 //            frontera.remove(0);
             interior.add(n);
-            
+
 
             if (n.esMeta(destino)) {
                 Nodo caminante = n;
-                while(caminante.padre != null){
+                while (caminante.padre != null) {
                     camino[caminante.x][caminante.y] = 'X';
                     caminante = caminante.padre;
                 }
+                camino[caminante.x][caminante.y] = 'X';
                 // reproducir camino recorriendo los padres
                 return 0;
             }
 
             cuentaNodos++;
             expandidos[n.x][n.y] = cuentaNodos;
-            
+
             n.generarHijos(mundo, destino);
 
             for (Nodo hijo : n.hijos) {
@@ -162,7 +164,6 @@ public class MiRobot extends Agent {
 
         if (a != 0) {
             System.err.println("Error en el A*");
-            throw new Error("Error en el A*");
         } else {
             for (int i = 0; i < expandidos.length; i++) {
                 for (int col : expandidos[i]) {
