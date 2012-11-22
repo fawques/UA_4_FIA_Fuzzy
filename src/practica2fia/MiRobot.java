@@ -74,8 +74,6 @@ public class MiRobot extends Agent {
         while (!frontera.isEmpty()) {
             n = frontera.remove();
             fronteraAux.remove(n);
-//            n = frontera.get(0); // TODO: obtener el de menor f, y de esos, elegir el mejor
-//            frontera.remove(0);
             interior.add(n);
 
 
@@ -167,15 +165,6 @@ public class MiRobot extends Agent {
         } else {
             for (int i = 0; i < expandidos.length; i++) {
                 for (int col : expandidos[i]) {
-                    /*if(col == -1){
-                        System.out.print(col+" ");
-                    }else if (col < 10) {
-                        System.out.print("[00" + col + "]");
-                    } else if (col < 100) {
-                        System.out.print("[0" + col + "]");
-                    } else {
-                        System.out.print("[" + col + "]");
-                    }*/
                     System.out.print(col+" ");
                 }
                 System.out.println();
