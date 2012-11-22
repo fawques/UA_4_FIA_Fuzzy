@@ -163,19 +163,19 @@ public class MiRobot extends Agent {
         if (a != 0) {
             System.err.println("Error en el A*");
         } else {
+            for (char[] fila : camino) {
+                for (char c : fila) {
+                    System.out.print(c+" ");
+                }
+                System.out.println();
+            }
+            
             for (int i = 0; i < expandidos.length; i++) {
                 for (int col : expandidos[i]) {
                     System.out.print(col+" ");
                 }
                 System.out.println();
 
-            }
-            
-            for (char[] fila : camino) {
-                for (char c : fila) {
-                    System.out.print(c+" ");
-                }
-                System.out.println();
             }
             
             System.out.println("######### Nodos totales: "+cuentaNodos);
