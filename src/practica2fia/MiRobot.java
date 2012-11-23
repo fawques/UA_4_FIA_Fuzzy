@@ -62,8 +62,8 @@ public class MiRobot extends Agent {
 
         Nodo n;
         ArrayList<Nodo> interior = new ArrayList<Nodo>();
-        ArrayList<Nodo> fronteraAux = new ArrayList<Nodo>();
         PriorityQueue<Nodo> frontera = new PriorityQueue<Nodo>();
+        ArrayList<Nodo> fronteraAux = new ArrayList<Nodo>();
         Nodo original = new Nodo(origen, 1, null, tamaño, destino);
 
         expandidos[original.x][original.y] = cuentaNodos;
@@ -80,16 +80,16 @@ public class MiRobot extends Agent {
             if (n.esMeta(destino)) {
                 Nodo caminante = n;
                 while (caminante.padre != null) {
-                    camino[caminante.x][caminante.y] = 'X';
                     caminante = caminante.padre;
+                    camino[caminante.x][caminante.y] = 'X';
                 }
-                camino[caminante.x][caminante.y] = 'X';
                 // reproducir camino recorriendo los padres
                 return 0;
             }
 
-            cuentaNodos++;
             expandidos[n.x][n.y] = cuentaNodos;
+            cuentaNodos++;
+            
 
             n.generarHijos(mundo, destino);
 
@@ -172,6 +172,12 @@ public class MiRobot extends Agent {
             
             for (int i = 0; i < expandidos.length; i++) {
                 for (int col : expandidos[i]) {
+                    if (col < 100) {
+                        System.out.print(" ");
+                    }
+                    if (col < 10 && col >= 0) {
+                        System.out.print(" ");
+                    }
                     System.out.print(col+" ");
                 }
                 System.out.println();
