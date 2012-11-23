@@ -102,11 +102,18 @@ public class Nodo implements Comparable {
     public int compareTo(Object o) {
         Nodo n = (Nodo) o;
         if (this.f < n.f) {
-            return -1;
+            return -2;
         } else if (this.f == n.f) {
-            return 0;
+            if (this.y > n.y) {
+                return -1;
+            }else if(this.y < n.y){
+                return 1;
+            }else{
+                return 0;
+            }
+            
         } else {
-            return 1;
+            return 2;
         }
     }
 }
