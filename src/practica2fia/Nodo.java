@@ -38,14 +38,14 @@ public class Nodo implements Comparable {
         hijos = new ArrayList<Nodo>();
     }
 
-    public boolean esMeta(int destino) {
+    public boolean esMeta() {
         return x == destino && y == tamano - 1;
     }
 
-    public void generarHijos(int[][] mundo, int destino) {
+    public void generarHijos(int[][] mundo) {
         if (y < tamano) {
             Nodo aux = new Nodo(x, y + 1, this, tamano, destino);
-            if (mundo[x][y + 1] == 0 || aux.esMeta(destino)) { // Derecha
+            if (mundo[x][y + 1] == 0 || aux.esMeta()) { // Derecha
                 hijos.add(aux);
             }
         }

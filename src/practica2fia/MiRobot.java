@@ -77,7 +77,7 @@ public class MiRobot extends Agent {
             interior.add(n);
 
 
-            if (n.esMeta(destino)) {
+            if (n.esMeta()) {
                 Nodo caminante = n;
                 while (caminante.padre != null) {
                     caminante = caminante.padre;
@@ -91,7 +91,7 @@ public class MiRobot extends Agent {
             cuentaNodos++;
             
 
-            n.generarHijos(mundo, destino);
+            n.generarHijos(mundo);
 
             for (Nodo hijo : n.hijos) {
                 if (!interior.contains(hijo)) {
