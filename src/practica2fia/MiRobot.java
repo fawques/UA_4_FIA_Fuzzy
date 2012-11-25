@@ -159,6 +159,29 @@ public class MiRobot extends Agent {
 
         if (a != 0) {
             System.err.println("Error en el A*");
+            System.err.println(cuentaNodos);
+             int maximoEspacio = (int) Math.floor(Math.log10(cuentaNodos))+1;
+            for (int i = 0; i < expandidos.length; i++) {
+                
+                for (int col : expandidos[i]) {
+                    int aux;
+                    if (col < 0) {
+                        aux = 2;
+                    }else if(col == 0){
+                        aux = 1;
+                    }else{
+                        aux = (int) Math.floor(Math.log10(col))+1;
+                    }
+                    
+                    int espacios = maximoEspacio - aux;
+                    for (int j = 0; j < espacios; j++) {
+                        System.out.print(" ");
+                    }
+                    System.out.print(col+" ");
+                }
+                System.out.println();
+
+            }
         } else {
             for (char[] fila : camino) {
                 for (char c : fila) {
