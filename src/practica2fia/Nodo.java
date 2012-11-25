@@ -11,12 +11,15 @@ import java.util.ArrayList;
  * @author victor
  */
 public class Nodo implements Comparable {
+    
+    // selector de la heurística, 0 = Manhattan, 1 = Euclídea, 
+    static final int heuristica = 1;
 
-    int f;
+    long f;
     int g;
-    int h;
+    long h;
     int x, y;
-    int tamano, destino;
+    int tamano, destino; // variables auxiliares para la función esMeta
     Nodo padre;
     ArrayList<Nodo> hijos;
 
@@ -32,9 +35,15 @@ public class Nodo implements Comparable {
             g = padre.g + 1;
         }
 
-        h = Math.abs(destino - x) + Math.abs(tamano - 1 - y);
-        f = g + h;
-
+        if (heuristica == 0) { // Distancia Manhattan
+            h = Math.abs(destino - x) + Math.abs(tamano - 1 - y);  
+        }else if(heuristica == 1) {// Distancia euclídea
+            h = (long) (Math.pow(destino - x,2) + Math.pow(tamano - 1 - y,2));    
+        }else{ 
+            // TODO: Nueva heurística
+        }
+        actualizarF();
+        
         hijos = new ArrayList<Nodo>();
     }
 
@@ -69,11 +78,22 @@ public class Nodo implements Comparable {
     
     public void actualizarG(int nuevoG){
         g = nuevoG;
-        f = g + h;
+        actualizarF();
     }
     public void actualizarH(int nuevoH){
         h = nuevoH;
-        f = g + h;
+        actualizarF();
+    }
+    
+    private void actualizarF() {
+        if (heuristica == 0) {// Distancia Manhattan
+            f = g + h;
+        }else if(heuristica == 1){// Distancia euclídea
+            f = (long) (Math.pow(g, 2)) + h;
+        }else{
+            // TODO: nueva heurística
+        }
+        
     }
 
     public boolean equals(Nodo n) {
