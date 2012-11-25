@@ -105,6 +105,8 @@ public class MiRobot extends Agent {
                         if (g2 < hijo.g) {
                             hijo.padre = n;
                             hijo.actualizarG(g2);
+                            frontera.remove(hijo);
+                            frontera.add(hijo);
                         }
                     }
 
