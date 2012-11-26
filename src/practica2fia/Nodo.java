@@ -11,10 +11,9 @@ import java.util.ArrayList;
  * @author victor
  */
 public class Nodo implements Comparable {
-    
-    // selector de la heurística, 0 = Manhattan, 1 = Euclídea, 
-    static final int heuristica = 1;
 
+    // selector de la heurística, 0 = Trivial, 1 = Manhattan, 2 = Euclídea^2 , 3 = Euclídea aproximada 
+    static final int heuristica = 0;
     long f;
     int g;
     long h;
@@ -23,6 +22,14 @@ public class Nodo implements Comparable {
     Nodo padre;
     ArrayList<Nodo> hijos;
 
+    /**
+     * Constructor de Nodo
+     * @param _x fila en el mapa
+     * @param _y columna en el mapa
+     * @param _padre nodo que lo ha creado
+     * @param _tamano tamaño del mapa. Variable auxiliar
+     * @param _destino fila en la que se encuentra la columna de destino. Variable auxiliar
+     */
     public Nodo(int _x, int _y, Nodo _padre, int _tamano, int _destino) {
         padre = _padre;
         tamano = _tamano;
@@ -43,14 +50,23 @@ public class Nodo implements Comparable {
             // TODO: Nueva heurística
         }
         actualizarF();
-        
+
         hijos = new ArrayList<Nodo>();
     }
 
+    /**
+     * Comprueba si la casilla es la casilla destino.
+     * @return booleano que dice si es la casilla destino.
+     */
     public boolean esMeta() {
         return x == destino && y == tamano - 1;
     }
 
+    /**
+     * crea los hijos del nodo y los añade a su lista de hijos. El orden es:
+     * Derecha, Arriba, Abajo, Izquierda
+     * @param mundo mapa
+     */
     public void generarHijos(int[][] mundo) {
         if (y < tamano) {
             Nodo aux = new Nodo(x, y + 1, this, tamano, destino);
@@ -75,16 +91,25 @@ public class Nodo implements Comparable {
         }
 
     }
-    
-    public void actualizarG(int nuevoG){
+
+    /**
+     * Actualiza G y recalcula F
+     * @param nuevoG
+     */
+    public void actualizarG(int nuevoG) {
         g = nuevoG;
         actualizarF();
     }
-    public void actualizarH(int nuevoH){
+
+    /**
+     * Actualiza H y recalcula F
+     * @param nuevoH
+     */
+    public void actualizarH(int nuevoH) {
         h = nuevoH;
         actualizarF();
     }
-    
+
     private void actualizarF() {
         if (heuristica == 0) {// Distancia Manhattan
             f = g + h;
@@ -96,16 +121,30 @@ public class Nodo implements Comparable {
         
     }
 
+    /**
+     * Comparador con x e y
+     * @param n Nodo con el que se compara
+     * @return
+     */
     public boolean equals(Nodo n) {
         return x == n.x && y == n.y;
     }
 
+    /**
+     * Comparador con x e y
+     * @param n Nodo con el que se compara
+     * @return
+     */
     @Override
     public boolean equals(Object n) {
         Nodo aux = (Nodo) n;
         return x == aux.x && y == aux.y;
     }
 
+    /**
+     * [Autogenerado]
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 5;
@@ -114,11 +153,20 @@ public class Nodo implements Comparable {
         return hash;
     }
 
+    /**
+     * Nodo -> (x,y)
+     * @return
+     */
     @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
     }
 
+    /**
+     * Compara según la f y, en caso de igualdad, da prioridad al que más y tenga.
+     * @param o Nodo con el que comparar
+     * @return
+     */
     public int compareTo(Object o) {
         Nodo n = (Nodo) o;
         if (this.f < n.f) {
@@ -126,12 +174,12 @@ public class Nodo implements Comparable {
         } else if (this.f == n.f) {
             if (this.y > n.y) {
                 return -1;
-            }else if(this.y < n.y){
+            } else if (this.y < n.y) {
                 return 1;
-            }else{
+            } else {
                 return 0;
             }
-            
+
         } else {
             return 2;
         }

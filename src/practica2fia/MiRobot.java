@@ -63,6 +63,8 @@ public class MiRobot extends Agent {
         Nodo n;
         ArrayList<Nodo> interior = new ArrayList<Nodo>();
         PriorityQueue<Nodo> frontera = new PriorityQueue<Nodo>();
+
+        // lista auxiliar. Contiene los mismos elementos que frontera
         ArrayList<Nodo> fronteraAux = new ArrayList<Nodo>();
         Nodo original = new Nodo(origen, 1, null, tamaño, destino);
 
@@ -72,25 +74,28 @@ public class MiRobot extends Agent {
         fronteraAux.add(original);
 
         while (!frontera.isEmpty()) {
+            // obtenemos el elemento de menor f de la lista frontera
             n = frontera.remove();
             fronteraAux.remove(n);
+            // y lo metemos en la lista interior
             interior.add(n);
 
 
             if (n.esMeta()) {
+                // reproducimos el camino recorriendo los padres
                 Nodo caminante = n;
                 while (caminante.padre != null) {
                     caminante = caminante.padre;
                     camino[caminante.x][caminante.y] = 'X';
                 }
-                // reproducir camino recorriendo los padres
                 return 0;
             }
 
             expandidos[n.x][n.y] = cuentaNodos;
             cuentaNodos++;
-            
 
+
+            // generamos los hijos de n, se almacenan en su array de hijos
             n.generarHijos(mundo);
 
             for (Nodo hijo : n.hijos) {
@@ -105,6 +110,8 @@ public class MiRobot extends Agent {
                         if (g2 < hijo.g) {
                             hijo.padre = n;
                             hijo.actualizarG(g2);
+
+                            // actualizamos el heap para mantener el orden
                             frontera.remove(hijo);
                             frontera.add(hijo);
                         }
