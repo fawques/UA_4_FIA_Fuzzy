@@ -42,12 +42,20 @@ public class Nodo implements Comparable {
             g = padre.g + 1;
         }
 
-        if (heuristica == 0) { // Distancia Manhattan
-            h = Math.abs(destino - x) + Math.abs(tamano - 1 - y);  
-        }else if(heuristica == 1) {// Distancia euclídea
-            h = (long) (Math.pow(destino - x,2) + Math.pow(tamano - 1 - y,2));    
-        }else{ 
-            // TODO: Nueva heurística
+        if (heuristica == 0) { // Heurística trivial
+            h = 0;
+        }else if(heuristica == 1){ // Distancia Manhattan
+            h = Math.abs(destino - x) + Math.abs(tamano - 1 - y);
+        } else if (heuristica == 2) {// Distancia euclídea al cuadrado
+            h = (long) (Math.pow(destino - x, 2) + Math.pow(tamano - 1 - y, 2));
+        } else { // Distancia euclídea aproximada
+            int distX = Math.abs(destino - x);
+            int distY = Math.abs(tamano - 1 - y);
+            if (distX > distY) {
+                h = 14 * distY + 10 * (distX - distY);
+            } else {
+                h = 14 * distX + 10 * (distY - distX);
+            }
         }
         actualizarF();
 
@@ -111,14 +119,7 @@ public class Nodo implements Comparable {
     }
 
     private void actualizarF() {
-        if (heuristica == 0) {// Distancia Manhattan
             f = g + h;
-        }else if(heuristica == 1){// Distancia euclídea
-            f = (long) (Math.pow(g, 2)) + h;
-        }else{
-            // TODO: nueva heurística
-        }
-        
     }
 
     /**
