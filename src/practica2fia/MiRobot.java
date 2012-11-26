@@ -166,62 +166,10 @@ public class MiRobot extends Agent {
 
         if (a != 0) {
             System.err.println("Error en el A*");
-            System.err.println(cuentaNodos);
-             int maximoEspacio = (int) Math.floor(Math.log10(cuentaNodos))+1;
-            for (int i = 0; i < expandidos.length; i++) {
-                
-                for (int col : expandidos[i]) {
-                    int aux;
-                    if (col < 0) {
-                        aux = 2;
-                    }else if(col == 0){
-                        aux = 1;
-                    }else{
-                        aux = (int) Math.floor(Math.log10(col))+1;
-                    }
-                    
-                    int espacios = maximoEspacio - aux;
-                    for (int j = 0; j < espacios; j++) {
-                        System.out.print(" ");
-                    }
-                    System.out.print(col+" ");
-                }
-                System.out.println();
-
-            }
         } else {
-            for (char[] fila : camino) {
-                for (char c : fila) {
-                    System.out.print(c+" ");
-                }
-                System.out.println();
-            }
-            
-            int maximoEspacio = (int) Math.floor(Math.log10(cuentaNodos))+1;
-            for (int i = 0; i < expandidos.length; i++) {
-                
-                for (int col : expandidos[i]) {
-                    int aux;
-                    if (col < 0) {
-                        aux = 2;
-                    }else if(col == 0){
-                        aux = 1;
-                    }else{
-                        aux = (int) Math.floor(Math.log10(col))+1;
-                    }
-                    
-                    int espacios = maximoEspacio - aux;
-                    for (int j = 0; j < espacios; j++) {
-                        System.out.print(" ");
-                    }
-                    System.out.print(col+" ");
-                }
-                System.out.println();
+            mostrarCamino();
+            mostrarNodos();
 
-            }
-            
-            System.out.println("######### Nodos totales: "+cuentaNodos);
-            
             // init controller
             controller = new FuzzyController();
         }
@@ -320,5 +268,46 @@ public class MiRobot extends Agent {
         //System.out.println("Fuzzy Controller Output:");
         //System.out.println("    >vel: "+ controller.getVel());
         //System.out.println("    >rot: "+ controller.getRot());
+    }
+
+    /*
+     * Muestra la matriz camino, con el camino marcado con X
+     */
+    private void mostrarCamino() {
+        for (char[] fila : camino) {
+            for (char c : fila) {
+                System.out.print(c + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    /*
+     * Muestra la matriz de nodos expandidos en el orden en que se 
+     * han analizado
+     */
+    private void mostrarNodos() {
+        int maximoEspacio = (int) Math.floor(Math.log10(cuentaNodos))+1;
+        for (int i = 0; i < expandidos.length; i++) {
+
+            for (int col : expandidos[i]) {
+                int aux;
+                if (col < 0) {
+                    aux = 2;
+                }else if(col == 0){
+                    aux = 1;
+                }else{
+                    aux = (int) Math.floor(Math.log10(col))+1;
+            }
+                
+                int espacios = maximoEspacio - aux;
+                for (int j = 0; j < espacios; j++) {
+                    System.out.print(" ");
+                }
+                System.out.print(col+" ");
+            }
+            System.out.println();
+
+        }
     }
 }
