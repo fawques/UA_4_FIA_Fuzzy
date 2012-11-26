@@ -78,7 +78,11 @@ public class Nodo implements Comparable {
     public void generarHijos(int[][] mundo) {
         if (y < tamano) {
             Nodo aux = new Nodo(x, y + 1, this, tamano, destino);
-            if (mundo[x][y + 1] == 0 || aux.esMeta()) { // Derecha
+            boolean meta = aux.esMeta();
+            if (mundo[x][y + 1] == 0 || meta) { // Derecha
+                if (meta) {
+                    aux.f = 0;
+                }
                 hijos.add(aux);
             }
         }
