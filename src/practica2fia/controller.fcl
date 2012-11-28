@@ -103,7 +103,7 @@ END_FUZZIFY
 DEFUZZIFY vel // entre 0 y 2.5 m/s
     TERM atras   := (-1,1) (-0.01,1) (0,0);
     TERM fast   := (0,0) (2.5,1);
-    TERM veryfast   := (0,0) (0.5,0) (0.51,1) (2.5,1);
+    TERM veryfast   := (0,0) (1.5,0) (1.51,1) (2.5,1);
     TERM med    := (0,0) (1,1) (2.5,0);
     TERM slow   := (-0.01,0) (0,1) (2.5,0);
     // Use 'Center Of Gravity' defuzzification method
@@ -115,10 +115,10 @@ END_DEFUZZIFY
 //EJEMPLO de definición NO VINCULANTE
 DEFUZZIFY rot // entre -10 y 10 rad/s
     TERM izqm   :=    (-10,0) (0,0) (10,1);
-    TERM izq    :=    (-10,0)(-5,0) (0,1) (5,1) (10,0);
+    TERM izq    :=    (-10,0)(-5,0) (-1,0) (0,1) (5,1) (10,0);
     TERM cen    :=    (-10,0) (-5,0) (-2.5,1) (2.5,1) (5,0);
     TERM muycen    :=    (-10,0) (-5,0) (-0.51,0) (-0.5,1) (0.5,1) (0.51,0) (5,0);
-    TERM der    :=    (-10,0) (-5,1) (0,1) (5,0) (10,0);
+    TERM der    :=    (-10,0) (-5,1) (0,1) (1,0) (5,0) (10,0);
     TERM derm   :=    (-10,1) (0,0) (10,0);
 
     // Use 'Center Of Gravity' defuzzification method
@@ -139,12 +139,12 @@ RULEBLOCK No1
     ACCU : MAX;
 
     //Definir las reglas del SE
-    RULE 1: IF s0 IS far AND s1 IS far AND s2 IS far AND s7 IS far AND s8 IS far THEN vel IS fast, rot IS cen;
-    RULE 2: IF s0 IS near THEN vel IS atras;
-    RULE 3: IF s0 IS verynear AND s4 IS NOT verynear AND s3 IS NOT verynear THEN vel IS atras,rot IS der;
-    RULE 9: IF s0 IS verynear AND s5 IS NOT verynear AND s6 IS NOT verynear THEN vel IS atras,rot IS izq;
-    RULE 4: IF s2 IS verynear AND s4 IS NOT verynear AND s3 IS NOT verynear THEN vel IS atras,rot IS der;
-    RULE 5: IF s7 IS verynear AND s5 IS NOT verynear AND s6 IS NOT verynear THEN vel IS atras,rot IS izq;
+    RULE 1: IF s0 IS far AND s1 IS far AND s2 IS far AND s7 IS far AND s8 IS far THEN vel IS veryfast, rot IS cen;
+    //RULE 2: IF s0 IS near THEN vel IS atras;
+    RULE 3: IF s0 IS verynear AND s4 IS NOT verynear AND s3 IS NOT verynear THEN vel IS atras;
+    RULE 9: IF s0 IS verynear AND s5 IS NOT verynear AND s6 IS NOT verynear THEN vel IS atras;
+    RULE 4: IF s2 IS verynear AND s4 IS NOT verynear AND s3 IS NOT verynear THEN vel IS atras;
+    RULE 5: IF s7 IS verynear AND s5 IS NOT verynear AND s6 IS NOT verynear THEN vel IS atras;
     //RULE 1: IF s2 IS verynear THEN rot IS der;
     //RULE 2: IF s7 IS verynear THEN rot IS izq;
     //RULE 3: IF s0 IS near AND s2 IS NOT verynear THEN vel IS slow, rot IS izq;
@@ -155,6 +155,7 @@ RULEBLOCK No1
     RULE 8: IF sig IS der THEN rot IS der;
     RULE 10: IF sig IS der THEN rot IS der;
     RULE 11: IF s0 IS far THEN vel is veryfast;
+    RULE 12: IF s2 IS near THEN rot is der;
 
 END_RULEBLOCK
 
