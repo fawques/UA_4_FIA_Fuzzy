@@ -19,15 +19,36 @@ VAR_OUTPUT
 END_VAR
 
 //EJEMPLO de definición NO VINCULANTE. Hacer lo mismo para los 7 sensores restantes
+
 FUZZIFY s0
-    TERM near   := (0,1) (0.5,0.5) (1,0.25) (1.5,0);
-    TERM med    := (0.25,0) (0.75,1) (1.25,0) (1.5,0);
-    TERM far    := (0,0) (1.5,1);
+    TERM near   := (0,1) (0.5,0);
+    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
+    TERM far    := (1,0) (1.5,1);
+END_FUZZIFY
+
+FUZZIFY s1
+    TERM near   := (0,1) (0.5,0);
+    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
+    TERM far    := (1,0) (1.5,1);
+END_FUZZIFY
+
+FUZZIFY s8
+    TERM near   := (0,1) (0.5,0);
+    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
+    TERM far    := (1,0) (1.5,1);
+END_FUZZIFY
+
+FUZZIFY sig
+    TERM der   := (-180,1) (0,0);
+    TERM med   := (-180,0) (-45,1) (45,1) (180,0);
+    TERM izq    := (0,0) (180,1);
 END_FUZZIFY
 
 
+
+
 //EJEMPLO de definición NO VINCULANTE
-DEFUZZIFY vel
+DEFUZZIFY vel // entre 0 y 2.5 m/s
     TERM fast   := (0,0) (2.5,1);
     TERM med    := (0,0) (1,1) (2.5,0);
     TERM slow   := (0,1) (2.5,0);
@@ -38,7 +59,7 @@ DEFUZZIFY vel
 END_DEFUZZIFY
 
 //EJEMPLO de definición NO VINCULANTE
-DEFUZZIFY rot
+DEFUZZIFY rot // entre -10 y 10 rad/s
     TERM izqm   :=    (-10,0) (0,0) (10,1);
     TERM izq    :=    (-10,0)(-5,0) (0,1) (5,1) (10,0);
     TERM cen    :=    (-10,0) (-5,0) (-2.5,1) (2.5,1) (5,0);
