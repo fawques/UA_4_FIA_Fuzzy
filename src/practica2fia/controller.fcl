@@ -84,8 +84,13 @@ RULEBLOCK No1
     ACCU : MAX;
 
     //Definir las reglas del SE
-    RULE 1: IF s0 IS far THEN vel IS med;
-    RULE 2: IF s0 IS near THEN rot IS izqm;
+    RULE 1: IF sig IS izq AND s1 IS near THEN rot IS der;
+    RULE 6: IF sig IS med THEN vel IS slow;
+    RULE 2: IF sig IS izq THEN rot IS izq;
+    RULE 3: IF sig IS der THEN rot IS der;
+    //RULE 2: IF s0 IS far THEN vel IS med;
+    RULE 4: IF s0 IS near AND s1 IS far THEN rot IS izqm;
+    RULE 5: IF s0 IS near AND s8 IS far THEN rot IS derm;
 
 END_RULEBLOCK
 
