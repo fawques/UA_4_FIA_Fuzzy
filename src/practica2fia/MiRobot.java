@@ -84,10 +84,12 @@ public class MiRobot extends Agent {
             if (n.esMeta()) {
                 // reproducimos el camino recorriendo los padres
                 Nodo caminante = n;
+                camino[caminante.x][caminante.y] = 'X';
                 while (caminante.padre != null) {
                     caminante = caminante.padre;
                     camino[caminante.x][caminante.y] = 'X';
                 }
+                
                 return 0;
             }
 
