@@ -20,7 +20,7 @@ END_VAR
 
 FUZZIFY s0
     TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,1) (0.6,0);
+    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
     TERM far    := (1,0) (1.5,1);
     TERM veryfar    := (1,0) (1.5,1);
@@ -28,7 +28,7 @@ END_FUZZIFY
 
 FUZZIFY s1
     TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,1) (0.6,0);
+    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
     TERM far    := (0.6,0) (1.5,1);
     TERM veryfar    := (1,0) (1.5,1);
@@ -36,7 +36,7 @@ END_FUZZIFY
 
 FUZZIFY s2
     TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,1) (0.6,0);
+    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
     TERM far    := (0.6,0) (1.5,1);
     TERM veryfar    := (1,0) (1.5,1);
@@ -44,7 +44,7 @@ END_FUZZIFY
 
 FUZZIFY s3
     TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,1) (0.6,0);
+    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
     TERM far    := (0.6,0) (1.5,1);
     TERM veryfar    := (1,0) (1.5,1);
@@ -52,7 +52,7 @@ END_FUZZIFY
 
 FUZZIFY s4
     TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,1) (0.6,0);
+    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
     TERM far    := (0.6,0) (1.5,1);
     TERM veryfar    := (1,0) (1.5,1);
@@ -60,7 +60,7 @@ END_FUZZIFY
 
 FUZZIFY s5
     TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,1) (0.6,0);
+    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
     TERM far    := (0.6,0) (1.5,1);
     TERM veryfar    := (1,0) (1.5,1);
@@ -68,7 +68,7 @@ END_FUZZIFY
 
 FUZZIFY s6
     TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,1) (0.6,0);
+    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
     TERM far    := (0.6,0) (1.5,1);
     TERM veryfar    := (1,0) (1.5,1);
@@ -76,7 +76,7 @@ END_FUZZIFY
 
 FUZZIFY s7
     TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,1) (0.6,0);
+    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
     TERM far    := (0.6,0) (1.5,1);
     TERM veryfar    := (1,0) (1.5,1);
@@ -84,7 +84,7 @@ END_FUZZIFY
 
 FUZZIFY s8
     TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,1) (0.6,0);
+    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
     TERM far    := (0.6,0) (1.5,1);
     TERM veryfar    := (1,0) (1.5,1);
