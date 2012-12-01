@@ -110,7 +110,6 @@ END_FUZZIFY
 
 //EJEMPLO de definición NO VINCULANTE
 DEFUZZIFY vel // entre 0 y 2.5 m/s
-    TERM muyatras   := (-2,1) (-1.01,1) (0,0);
     TERM atras   := (-1,1) (-0.01,1) (0,0);
     TERM fast   := (0,0) (2.5,1);
     TERM veryfast   := (0,0) (1.5,0) (1.51,1) (2.5,1);
@@ -169,10 +168,8 @@ RULEBLOCK No1
     RULE 100: IF sig IS der THEN rot IS der;
     RULE 101: IF sig IS izq THEN rot IS izq;
     RULE 110: IF s8 IS rozando THEN rot IS izqm, vel IS atras;
-    //RULE 112: IF s8 IS rozando AND s4 IS far THEN rot IS izqm, vel IS muyatras;
     RULE 111: IF s7 IS rozando THEN rot IS izqm;
     RULE 120: IF s1 IS rozando THEN rot IS derm, vel IS atras;
-    //RULE 122: IF s1 IS rozando AND s4 IS far THEN rot IS izqm, vel IS muyatras;
     RULE 121: IF s2 IS rozando THEN rot IS derm;
 
 END_RULEBLOCK
