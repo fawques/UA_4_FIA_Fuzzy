@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Nodo implements Comparable {
 
     // selector de la heurística, 0 = Trivial, 1 = Manhattan, 2 = Euclídea^2 , 3 = Euclídea aproximada 
-    static final int heuristica = 1;
+    static final int heuristica = 3;
     long f;
     int g;
     long h;
