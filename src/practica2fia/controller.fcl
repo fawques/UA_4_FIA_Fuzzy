@@ -126,9 +126,11 @@ END_DEFUZZIFY
 DEFUZZIFY rot // entre -10 y 10 rad/s
     TERM muyizq   :=    (-10,0) (0,0) (5,0.5) (7,1) (10,1);
     TERM izq   :=    (-10,0) (0,0) (3,1) (7,1) (10,0);
+    TERM muypocoizq    :=    (-10,0)(-5,0) (-1,0) (0,1) (1,1)(3,0) (5,0) (10,0);
     TERM pocoizq    :=    (-10,0)(-5,0) (-1,0) (0,1) (3,1) (5,0.5) (10,0);
     TERM cen    :=    (-10,0) (-2.5,0) (-1,1) (1,1) (2.5,0);
     TERM muycen    :=    (-0.01,0) (0,1) (0.01,0);
+    TERM muypocoder    :=    (-10,0) (-5,0) (-3,0)(-1,1) (0,1) (1,0);
     TERM pocoder    :=    (-10,0) (-5,0.5) (-3,1) (0,1) (1,0);
     TERM der   :=    (-10,0) (-7,1) (-3,1) (0,0);
     TERM muyder   :=    (-10,1) (-7,1) (-5,0.5) (0,0);
@@ -151,7 +153,22 @@ RULEBLOCK No1
     ACCU : MAX;
 
     //Definir las reglas del SE
+
+    //Oriéntate hacia el camino que debes recorrer
+    RULE 10: IF sig IS der THEN rot IS pocoder;
+    RULE 11: IF sig IS izq THEN rot IS pocoizq;
+    RULE 12: IF sig IS cen THEN rot IS cen;
+    //Si estás demasiado cerca de la pared frontal, retrocede
+    RULE 20: IF s0 IS lejos THEN vel IS normal;
+    RULE 21: IF s0 IS muycerca THEN vel IS atras;
+    //Intenta mantenerte en el centro del camino
+    RULE 30: IF s2 IS muycerca AND s7 IS lejos THEN rot IS pocoder;
+    RULE 31: IF s7 IS muycerca AND s2 IS lejos THEN rot IS pocoizq;
+    //Si te encuentras demasiado cerca de una pared frontal y a un lado, gira mucho hacia el otro lado
+    RULE 40: IF s8 IS rozando AND s0 IS NOT muycerca THEN rot IS muyizq, vel IS muylento;
+    RULE 41: IF s1 IS rozando AND s0 IS NOT muycerca THEN rot IS muyder, vel IS muylento;
     
+    RULE 50: IF s7 IS rozando AND s6 IS rozando THEN rot IS muyizq, vel IS atras;
 
 END_RULEBLOCK
 
