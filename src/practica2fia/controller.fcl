@@ -157,10 +157,10 @@ RULEBLOCK No1
 
     //Oriéntate hacia el camino que debes recorrer
     RULE 10: IF sig IS der AND s7 IS lejos THEN rot IS muyder;
-    RULE 11: IF sig IS der AND s7 IS NOT lejos THEN rot IS pocoder,vel IS muylento;
+    RULE 11: IF sig IS der THEN rot IS pocoder;
     RULE 12: IF sig IS cen THEN rot IS cen;
     RULE 13: IF sig IS izq AND s2 IS lejos THEN rot IS muyizq;
-    RULE 14: IF sig IS izq AND s2 IS NOT lejos THEN rot IS pocoizq,vel IS muylento;
+    RULE 14: IF sig IS izq THEN rot IS pocoizq;
     //Si estás demasiado cerca de la pared frontal, retrocede
     //RULE 20: IF s0 IS lejos THEN vel IS normal;
     RULE 21: IF s0 IS muycerca THEN vel IS atras;
