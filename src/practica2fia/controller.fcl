@@ -124,17 +124,17 @@ DEFUZZIFY vel // entre 0 y 2.5 m/s
 END_DEFUZZIFY
 
 //EJEMPLO de definición NO VINCULANTE
-DEFUZZIFY rot // entre -10 y 10 rad/s
-    TERM muyizq   :=    (-10,0) (0,0) (5,0.5) (7,1) (10,1);
-    TERM izq   :=    (-10,0) (0,0) (3,1) (7,1) (10,0);
-    TERM muypocoizq    :=    (-10,0)(-5,0) (-1,0) (0,1) (1,1)(3,0) (5,0) (10,0);
-    TERM pocoizq    :=    (-10,0)(-5,0) (-1,0) (0,1) (3,1) (5,0.5) (10,0);
-    TERM cen    :=    (-10,0) (-2.5,0) (-1,1) (1,1) (2.5,0);
+DEFUZZIFY rot // entre -5 y 5 rad/s
+    TERM muyizq   :=    (-5,0) (0,0) (2.5,0.5) (3.5,1) (5,1);
+    TERM izq   :=    (-5,0) (0,0) (1.5,1) (3.5,1) (5,0);
+    TERM muypocoizq    :=    (-5,0)(-2.5,0) (-0.5,0) (0,1) (0.5,1)(1.5,0) (2.5,0) (5,0);
+    TERM pocoizq    :=    (-5,0)(-2.5,0) (-0.5,0) (0,1) (1.5,1) (2.5,0.5) (5,0);
+    TERM cen    :=    (-5,0) (-1.25,0) (-0.5,1) (0.5,1) (1.25,0);
     TERM muycen    :=    (-0.01,0) (0,1) (0.01,0);
-    TERM muypocoder    :=    (-10,0) (-5,0) (-3,0)(-1,1) (0,1) (1,0);
-    TERM pocoder    :=    (-10,0) (-5,0.5) (-3,1) (0,1) (1,0);
-    TERM der   :=    (-10,0) (-7,1) (-3,1) (0,0);
-    TERM muyder   :=    (-10,1) (-7,1) (-5,0.5) (0,0);
+    TERM muypocoder    :=    (-5,0) (-2.5,0) (-1.5,0)(-0.5,1) (0,1) (0.5,0);
+    TERM pocoder    :=    (-5,0) (-2.5,0.5) (-1.5,1) (0,1) (0.5,0);
+    TERM der   :=    (-5,0) (-3.5,1) (-1.5,1) (0,0);
+    TERM muyder   :=    (-5,1) (-3.5,1) (-2.5,0.5) (0,0);
 
     // Use 'Center Of Gravity' defuzzification method
     METHOD : COG;
@@ -156,8 +156,8 @@ RULEBLOCK No1
     //Definir las reglas del SE
 
     //Oriéntate hacia el camino que debes recorrer
-    RULE 10: IF sig IS der THEN rot IS pocoder;
-    RULE 11: IF sig IS izq THEN rot IS pocoizq;
+    RULE 10: IF sig IS der AND s7 IS lejos THEN rot IS muyder;
+    RULE 11: IF sig IS izq AND s2 IS lejos THEN rot IS muyizq;
     RULE 12: IF sig IS cen THEN rot IS cen;
     //Si estás demasiado cerca de la pared frontal, retrocede
     //RULE 20: IF s0 IS lejos THEN vel IS normal;
