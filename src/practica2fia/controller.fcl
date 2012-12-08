@@ -166,8 +166,8 @@ RULEBLOCK No1
     RULE 30: IF s2 IS muycerca AND s7 IS lejos THEN rot IS pocoder;
     RULE 31: IF s7 IS muycerca AND s2 IS lejos THEN rot IS pocoizq;
     //Si te encuentras demasiado cerca de una pared frontal y a un lado, gira mucho hacia el otro lado
-    //RULE 40: IF s8 IS rozando AND s0 IS NOT muycerca THEN rot IS muyizq, vel IS casiparado;
-    //RULE 41: IF s1 IS rozando AND s0 IS NOT muycerca THEN rot IS muyder, vel IS casiparado;
+    RULE 40: IF s8 IS rozando AND s0 IS NOT muycerca THEN rot IS muyizq, vel IS casiparado;
+    RULE 41: IF s1 IS rozando AND s0 IS NOT muycerca THEN rot IS muyder, vel IS casiparado;
     
     RULE 50: IF s7 IS rozando AND s6 IS rozando THEN rot IS izq, vel IS casiparado;
     RULE 51: IF s2 IS rozando AND s3 IS rozando THEN rot IS der, vel IS casiparado;
