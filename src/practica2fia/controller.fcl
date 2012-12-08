@@ -110,11 +110,11 @@ END_FUZZIFY
 
 //EJEMPLO de definición NO VINCULANTE
 DEFUZZIFY vel // entre 0 y 2.5 m/s
-    TERM atras   := (-0.5,1) (-0.01,1) (0,0);
+    TERM atras   := (-1,1) (-0.01,1) (0,0);
     TERM rapido   := (0,0) (2.5,1);
     TERM muyrapido   := (0,0) (2,0) (2.01,1) (2.5,1);
     TERM normal    := (0,0) (1.25,1) (2.5,0);
-    TERM lento   := (0,1) (2.5,0);
+    TERM lento   := (0,1) (1.5,0) (2.5,0);
     TERM muylento   := (0,1) (1,0) (2.5,0);
     // Use 'Center Of Gravity' defuzzification method
     METHOD : COG;
@@ -151,26 +151,7 @@ RULEBLOCK No1
     ACCU : MAX;
 
     //Definir las reglas del SE
-    //RULE 10: IF s0 IS lejos AND s1 IS lejos AND s2 IS lejos AND s7 IS lejos AND s8 IS lejos THEN vel IS muyrapido, rot IS cen;
-    RULE 20: IF s0 IS muycerca THEN vel IS atras;
-    RULE 21: IF s0 IS cerca THEN vel IS muylento;
     
-    RULE 22: IF s0 IS mid THEN vel IS lento;
-    //RULE 30: IF s1 IS muycerca THEN rot IS muyder;
-    //RULE 31: IF s2 IS muycerca THEN rot IS pocoder;
-    //RULE 32: IF s2 IS cerca THEN rot IS pocoder;
-    //RULE 40: IF s8 IS muycerca THEN rot IS muyizq;
-    //RULE 41: IF s7 IS muycerca THEN rot IS pocoizq;
-    //RULE 42: IF s7 IS cerca THEN rot IS pocoizq;
-    //RULE 60: IF sig IS cen THEN rot IS cen;
-    //RULE 61: IF sig IS der THEN rot IS pocoder;
-    //RULE 62: IF sig IS izq THEN rot IS pocoizq;
-    //RULE 110: IF s8 IS rozando THEN rot IS muyizq, vel IS atras;
-    //RULE 111: IF s7 IS rozando THEN rot IS muyizq;
-    //RULE 120: IF s1 IS rozando THEN rot IS muyder, vel IS atras;
-    //RULE 121: IF s2 IS rozando THEN rot IS muyder;
-    //RULE 130: IF s0 IS cerca AND s1 IS cerca AND s2 IS mid AND s8 IS lejos AND s7 IS lejos THEN rot IS pocoder, vel IS lento;
-    //RULE 131: IF s0 IS cerca AND s1 IS lejos AND s2 IS lejos AND s8 IS cerca AND s7 IS mid THEN rot IS pocoizq, vel IS lento;
 
 END_RULEBLOCK
 
