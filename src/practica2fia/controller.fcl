@@ -173,8 +173,8 @@ RULEBLOCK No1
     RULE 121: IF s2 IS rozando THEN rot IS derm;
     RULE 130: IF s0 IS near AND s1 IS near AND s2 IS mid AND s8 IS far AND s7 IS far THEN rot IS der, vel IS slow;
     RULE 131: IF s0 IS near AND s1 IS far AND s2 IS far AND s8 IS near AND s7 IS mid THEN rot IS izq, vel IS slow;
-    RULE 140: IF s2 IS verynear AND s7 IS far THEN rot IS der, vel IS slow;
-    RULE 141: IF s7 IS verynear AND s2 IS far THEN rot IS izq, vel IS slow;
+    RULE 140: IF s2 IS verynear AND s7 IS far THEN rot IS dersemi, vel IS slow;
+    RULE 141: IF s7 IS verynear AND s2 IS far THEN rot IS izqsemi, vel IS slow;
 
 END_RULEBLOCK
 
