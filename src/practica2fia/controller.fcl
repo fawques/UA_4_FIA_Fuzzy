@@ -116,6 +116,7 @@ DEFUZZIFY vel // entre 0 y 2.5 m/s
     TERM normal    := (0,0) (1.25,1) (2.5,0);
     TERM lento   := (0,1) (1.5,0) (2.5,0);
     TERM muylento   := (0,1) (1,0) (2.5,0);
+    TERM casiparado   := (0,1) (0.2,0) (2.5,0);
     // Use 'Center Of Gravity' defuzzification method
     METHOD : COG;
     // Default value is 1 (if no rule activates defuzzifier)
@@ -159,17 +160,17 @@ RULEBLOCK No1
     RULE 11: IF sig IS izq THEN rot IS pocoizq;
     RULE 12: IF sig IS cen THEN rot IS cen;
     //Si estás demasiado cerca de la pared frontal, retrocede
-    RULE 20: IF s0 IS lejos THEN vel IS normal;
+    //RULE 20: IF s0 IS lejos THEN vel IS normal;
     RULE 21: IF s0 IS muycerca THEN vel IS atras;
     //Intenta mantenerte en el centro del camino
     RULE 30: IF s2 IS muycerca AND s7 IS lejos THEN rot IS pocoder;
     RULE 31: IF s7 IS muycerca AND s2 IS lejos THEN rot IS pocoizq;
     //Si te encuentras demasiado cerca de una pared frontal y a un lado, gira mucho hacia el otro lado
-    RULE 40: IF s8 IS rozando AND s0 IS NOT muycerca THEN rot IS muyizq, vel IS muylento;
-    RULE 41: IF s1 IS rozando AND s0 IS NOT muycerca THEN rot IS muyder, vel IS muylento;
+    RULE 40: IF s8 IS rozando AND s0 IS NOT muycerca THEN rot IS muyizq, vel IS casiparado;
+    RULE 41: IF s1 IS rozando AND s0 IS NOT muycerca THEN rot IS muyder, vel IS casiparado;
     
-    RULE 50: IF s7 IS rozando AND s6 IS rozando THEN rot IS izq, vel IS atras;
-    RULE 51: IF s2 IS rozando AND s3 IS rozando THEN rot IS der, vel IS atras;
+    RULE 50: IF s7 IS rozando AND s6 IS rozando THEN rot IS izq, vel IS casiparado;
+    RULE 51: IF s2 IS rozando AND s3 IS rozando THEN rot IS der, vel IS casiparado;
 
 END_RULEBLOCK
 
