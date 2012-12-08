@@ -157,8 +157,10 @@ RULEBLOCK No1
 
     //Oriéntate hacia el camino que debes recorrer
     RULE 10: IF sig IS der AND s7 IS lejos THEN rot IS muyder;
-    RULE 11: IF sig IS izq AND s2 IS lejos THEN rot IS muyizq;
+    RULE 11: IF sig IS der AND s7 IS NOT lejos THEN rot IS pocoder,vel IS muylento;
     RULE 12: IF sig IS cen THEN rot IS cen;
+    RULE 13: IF sig IS izq AND s2 IS lejos THEN rot IS muyizq;
+    RULE 14: IF sig IS izq AND s2 IS NOT lejos THEN rot IS pocoizq,vel IS muylento;
     //Si estás demasiado cerca de la pared frontal, retrocede
     //RULE 20: IF s0 IS lejos THEN vel IS normal;
     RULE 21: IF s0 IS muycerca THEN vel IS atras;
@@ -166,11 +168,15 @@ RULEBLOCK No1
     RULE 30: IF s2 IS muycerca AND s7 IS lejos THEN rot IS pocoder;
     RULE 31: IF s7 IS muycerca AND s2 IS lejos THEN rot IS pocoizq;
     //Si te encuentras demasiado cerca de una pared frontal y a un lado, gira mucho hacia el otro lado
-    RULE 40: IF s8 IS rozando AND s0 IS NOT muycerca THEN rot IS muyizq, vel IS casiparado;
-    RULE 41: IF s1 IS rozando AND s0 IS NOT muycerca THEN rot IS muyder, vel IS casiparado;
+    //RULE 40: IF s8 IS rozando AND s0 IS NOT muycerca THEN rot IS muyizq, vel IS casiparado;
+    //RULE 41: IF s1 IS rozando AND s0 IS NOT muycerca THEN rot IS muyder, vel IS casiparado;
     
     RULE 50: IF s7 IS rozando AND s6 IS rozando THEN rot IS izq, vel IS casiparado;
     RULE 51: IF s2 IS rozando AND s3 IS rozando THEN rot IS der, vel IS casiparado;
+    
+    RULE 60: IF s0 IS lejos AND s1 IS lejos AND s8 IS lejos THEN rot IS cen, vel IS normal;
+    
+    RULE 70: IF s0 IS rozando OR s1 IS rozando OR s8 IS rozando THEN vel IS atras;
 
 END_RULEBLOCK
 
