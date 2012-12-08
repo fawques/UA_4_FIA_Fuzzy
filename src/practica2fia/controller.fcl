@@ -168,7 +168,8 @@ RULEBLOCK No1
     RULE 40: IF s8 IS rozando AND s0 IS NOT muycerca THEN rot IS muyizq, vel IS muylento;
     RULE 41: IF s1 IS rozando AND s0 IS NOT muycerca THEN rot IS muyder, vel IS muylento;
     
-    RULE 50: IF s7 IS rozando AND s6 IS rozando THEN rot IS muyizq, vel IS atras;
+    RULE 50: IF s7 IS rozando AND s6 IS rozando THEN rot IS izq, vel IS atras;
+    RULE 51: IF s2 IS rozando AND s3 IS rozando THEN rot IS der, vel IS atras;
 
 END_RULEBLOCK
 
