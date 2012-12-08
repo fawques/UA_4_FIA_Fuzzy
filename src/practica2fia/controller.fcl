@@ -156,23 +156,21 @@ RULEBLOCK No1
     RULE 21: IF s0 IS near THEN vel IS veryslow;
     
     RULE 22: IF s0 IS mid THEN vel IS slow;
-    RULE 30: IF s1 IS verynear THEN rot IS derm;
-    RULE 31: IF s2 IS verynear THEN rot IS der;
-    RULE 32: IF s2 IS near THEN rot IS der;
-    RULE 40: IF s8 IS verynear THEN rot IS izqm;
-    RULE 41: IF s7 IS verynear THEN rot IS izq;
-    RULE 42: IF s7 IS near THEN rot IS izq;
-    RULE 60: IF sig IS med THEN rot IS cen;
-    RULE 70: IF sig IS izq THEN rot IS izq;
-    RULE 80: IF sig IS der THEN rot IS der;
-    RULE 100: IF sig IS der THEN rot IS der;
-    RULE 101: IF sig IS izq THEN rot IS izq;
-    RULE 110: IF s8 IS rozando THEN rot IS izqm, vel IS atras;
-    RULE 111: IF s7 IS rozando THEN rot IS izqm;
-    RULE 120: IF s1 IS rozando THEN rot IS derm, vel IS atras;
-    RULE 121: IF s2 IS rozando THEN rot IS derm;
-    RULE 130: IF s0 IS near AND s1 IS near AND s2 IS mid AND s8 IS far AND s7 IS far THEN rot IS der, vel IS slow;
-    RULE 131: IF s0 IS near AND s1 IS far AND s2 IS far AND s8 IS near AND s7 IS mid THEN rot IS izq, vel IS slow;
+    //RULE 30: IF s1 IS verynear THEN rot IS derm;
+    //RULE 31: IF s2 IS verynear THEN rot IS der;
+    //RULE 32: IF s2 IS near THEN rot IS der;
+    //RULE 40: IF s8 IS verynear THEN rot IS izqm;
+    //RULE 41: IF s7 IS verynear THEN rot IS izq;
+    //RULE 42: IF s7 IS near THEN rot IS izq;
+    //RULE 60: IF sig IS med THEN rot IS cen;
+    RULE 61: IF sig IS der THEN rot IS der;
+    RULE 62: IF sig IS izq THEN rot IS izq;
+    //RULE 110: IF s8 IS rozando THEN rot IS izqm, vel IS atras;
+    //RULE 111: IF s7 IS rozando THEN rot IS izqm;
+    //RULE 120: IF s1 IS rozando THEN rot IS derm, vel IS atras;
+    //RULE 121: IF s2 IS rozando THEN rot IS derm;
+    //RULE 130: IF s0 IS near AND s1 IS near AND s2 IS mid AND s8 IS far AND s7 IS far THEN rot IS der, vel IS slow;
+    //RULE 131: IF s0 IS near AND s1 IS far AND s2 IS far AND s8 IS near AND s7 IS mid THEN rot IS izq, vel IS slow;
 
 END_RULEBLOCK
 
