@@ -100,6 +100,7 @@ FUZZIFY s8
 END_FUZZIFY
 
 FUZZIFY sig
+    TERM esquina    := (-135,0)(-90,1)(-45,0)(45,0)(90,1)(135,0);
     TERM der   := (-180,1) (0,0);
     TERM med   := (-180,0) (-45,1) (45,1) (180,0);
     TERM izq    := (0,0) (180,1);
@@ -123,15 +124,20 @@ DEFUZZIFY vel // entre 0 y 2.5 m/s
 END_DEFUZZIFY
 
 //EJEMPLO de definición NO VINCULANTE
-DEFUZZIFY rot // entre -10 y 10 rad/s
-    TERM izqm   :=    (-10,0) (0,0) (10,1);
-    TERM izqsemi   :=    (-10,0) (0,0) (2,0) (10,1);
-    TERM izq    :=    (-10,0)(-5,0) (-1,0) (0,1) (5,1) (10,0);
-    TERM cen    :=    (-10,0) (-5,0) (-2.5,1) (2.5,1) (5,0);
-    TERM muycen    :=    (-10,0) (-5,0) (-0.51,0) (-0.5,1) (0.5,1) (0.51,0) (5,0);
-    TERM der    :=    (-10,0) (-5,1) (0,1) (1,0) (5,0) (10,0);
-    TERM dersemi   :=    (-10,1) (-2,0) (0,0) (10,0);
-    TERM derm   :=    (-10,1) (0,0) (10,0);
+
+DEFUZZIFY rot // entre -5 y 5 rad/s
+    TERM esquinaizq :=  (0.8,0)(1.6,1)(2.4,0);
+    TERM muyizq   :=    (-5,0) (0,0) (2.5,0.5) (3.5,1) (5,1);
+    TERM izq   :=    (-5,0) (0,0) (1.5,1) (3.5,1) (5,0);
+    TERM muypocoizq    :=    (-5,0)(-2.5,0) (-0.5,0) (0,1) (0.5,1)(1.5,0) (2.5,0) (5,0);
+    TERM pocoizq    :=    (-5,0)(-2.5,0) (-0.5,0) (0,1) (1.5,1) (2.5,0.5) (5,0);
+    TERM cen    :=    (-5,0) (-1.25,0) (-0.5,1) (0.5,1) (1.25,0);
+    TERM muycen    :=    (-0.01,0) (0,1) (0.01,0);
+    TERM muypocoder    :=    (-5,0) (-2.5,0) (-1.5,0)(-0.5,1) (0,1) (0.5,0);
+    TERM pocoder    :=    (-5,0) (-2.5,0.5) (-1.5,1) (0,1) (0.5,0);
+    TERM der   :=    (-5,0) (-3.5,1) (-1.5,1) (0,0);
+    TERM muyder   :=    (-5,1) (-3.5,1) (-2.5,0.5) (0,0);
+    TERM esquinader :=  (-2.4,0)(-1.6,1)(-0.8,0);
 
     // Use 'Center Of Gravity' defuzzification method
     METHOD : COG;
@@ -156,21 +162,25 @@ RULEBLOCK No1
     RULE 21: IF s0 IS near THEN vel IS veryslow;
     
     RULE 22: IF s0 IS mid THEN vel IS slow;
-    RULE 30: IF s1 IS verynear THEN rot IS derm;
+    RULE 30: IF s1 IS verynear THEN rot IS muyder;
     RULE 31: IF s2 IS verynear THEN rot IS der;
     RULE 32: IF s2 IS near THEN rot IS der;
-    RULE 40: IF s8 IS verynear THEN rot IS izqm;
+    RULE 40: IF s8 IS verynear THEN rot IS muyizq;
     RULE 41: IF s7 IS verynear THEN rot IS izq;
     RULE 42: IF s7 IS near THEN rot IS izq;
-    RULE 60: IF sig IS med THEN rot IS cen;
-    RULE 70: IF sig IS izq THEN rot IS izq;
-    RULE 80: IF sig IS der THEN rot IS der;
-    RULE 100: IF sig IS der THEN rot IS der;
-    RULE 101: IF sig IS izq THEN rot IS izq;
-    RULE 110: IF s8 IS rozando THEN rot IS izqm, vel IS atras;
-    RULE 111: IF s7 IS rozando THEN rot IS izqm;
-    RULE 120: IF s1 IS rozando THEN rot IS derm, vel IS atras;
-    RULE 121: IF s2 IS rozando THEN rot IS derm;
+
+
+    RULE 50: IF sig IS med THEN rot IS cen;
+    RULE 60: IF sig IS der AND sig IS esquina THEN rot IS esquinader;
+    RULE 61: IF sig IS der AND sig IS NOT esquina THEN rot IS der;
+    RULE 62: IF sig IS med THEN rot IS cen;
+    RULE 64: IF sig IS izq AND sig IS NOT esquina THEN rot IS izq;
+    RULE 63: IF sig IS izq AND sig IS esquina THEN rot IS esquinaizq;
+
+    RULE 110: IF s8 IS rozando THEN rot IS muyizq, vel IS atras;
+    RULE 111: IF s7 IS rozando THEN rot IS muyizq;
+    RULE 120: IF s1 IS rozando THEN rot IS muyder, vel IS atras;
+    RULE 121: IF s2 IS rozando THEN rot IS muyder;
 
 END_RULEBLOCK
 
