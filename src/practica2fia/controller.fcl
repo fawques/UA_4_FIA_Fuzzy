@@ -20,89 +20,89 @@ END_VAR
 
 FUZZIFY s0
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
+    TERM muycerca   := (0,1) (0.3,0);
+    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM far    := (1,0) (1.5,1);
-    TERM veryfar    := (1,0) (1.5,1);
+    TERM lejos    := (0.6,0) (1.5,1);
+    TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
 FUZZIFY s1
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
+    TERM muycerca   := (0,1) (0.3,0);
+    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM far    := (0.6,0) (1.5,1);
-    TERM veryfar    := (1,0) (1.5,1);
+    TERM lejos    := (0.6,0) (1.5,1);
+    TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
 FUZZIFY s2
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
+    TERM muycerca   := (0,1) (0.3,0);
+    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM far    := (0.6,0) (1.5,1);
-    TERM veryfar    := (1,0) (1.5,1);
+    TERM lejos    := (0.6,0) (1.5,1);
+    TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
 FUZZIFY s3
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
+    TERM muycerca   := (0,1) (0.3,0);
+    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM far    := (0.6,0) (1.5,1);
-    TERM veryfar    := (1,0) (1.5,1);
+    TERM lejos    := (0.6,0) (1.5,1);
+    TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
 FUZZIFY s4
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
+    TERM muycerca   := (0,1) (0.3,0);
+    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM far    := (0.6,0) (1.5,1);
-    TERM veryfar    := (1,0) (1.5,1);
+    TERM lejos    := (0.6,0) (1.5,1);
+    TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
 FUZZIFY s5
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
+    TERM muycerca   := (0,1) (0.3,0);
+    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM far    := (0.6,0) (1.5,1);
-    TERM veryfar    := (1,0) (1.5,1);
+    TERM lejos    := (0.6,0) (1.5,1);
+    TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
 FUZZIFY s6
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
+    TERM muycerca   := (0,1) (0.3,0);
+    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM far    := (0.6,0) (1.5,1);
-    TERM veryfar    := (1,0) (1.5,1);
+    TERM lejos    := (0.6,0) (1.5,1);
+    TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
 FUZZIFY s7
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
+    TERM muycerca   := (0,1) (0.3,0);
+    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM far    := (0.6,0) (1.5,1);
-    TERM veryfar    := (1,0) (1.5,1);
+    TERM lejos    := (0.6,0) (1.5,1);
+    TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
 FUZZIFY s8
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM verynear   := (0,1) (0.3,0);
-    TERM near   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
+    TERM muycerca   := (0,1) (0.3,0);
+    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
     TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM far    := (0.6,0) (1.5,1);
-    TERM veryfar    := (1,0) (1.5,1);
+    TERM lejos    := (0.6,0) (1.5,1);
+    TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
 FUZZIFY sig
     TERM esquina    := (-135,0)(-90,1)(-45,0)(45,0)(90,1)(135,0);
     TERM der   := (-180,1) (0,0);
-    TERM med   := (-180,0) (-45,1) (45,1) (180,0);
+    TERM cen   := (-180,0) (-45,1) (45,1) (180,0);
     TERM izq    := (0,0) (180,1);
 END_FUZZIFY
 
@@ -112,11 +112,12 @@ END_FUZZIFY
 //EJEMPLO de definición NO VINCULANTE
 DEFUZZIFY vel // entre 0 y 2.5 m/s
     TERM atras   := (-1,1) (-0.01,1) (0,0);
-    TERM fast   := (0,0) (2.5,1);
-    TERM veryfast   := (0,0) (1.5,0) (1.51,1) (2.5,1);
-    TERM med    := (0,0) (1.25,1) (2.5,0);
-    TERM slow   := (0,1) (2.5,0);
-    TERM veryslow   := (0,1) (1,0) (2.5,0);
+    TERM rapido   := (0,0) (2.5,1);
+    TERM muyrapido   := (0,0) (2,0) (2.01,1) (2.5,1);
+    TERM normal    := (0,0) (1.25,1) (2.5,0);
+    TERM lento   := (0,1) (1.5,0) (2.5,0);
+    TERM muylento   := (0,1) (1,0) (2.5,0);
+    TERM casiparado   := (0,1) (0.2,0) (2.5,0);
     // Use 'Center Of Gravity' defuzzification method
     METHOD : COG;
     // Default value is 1 (if no rule activates defuzzifier)
@@ -157,23 +158,22 @@ RULEBLOCK No1
     ACCU : MAX;
 
     //Definir las reglas del SE
-    RULE 10: IF s0 IS far AND s1 IS far AND s2 IS far AND s7 IS far AND s8 IS far THEN vel IS veryfast, rot IS cen;
-    RULE 20: IF s0 IS verynear THEN vel IS atras;
-    RULE 21: IF s0 IS near THEN vel IS veryslow;
+    RULE 10: IF s0 IS lejos AND s1 IS lejos AND s2 IS lejos AND s7 IS lejos AND s8 IS lejos THEN vel IS muyrapido, rot IS cen;
+    RULE 20: IF s0 IS muycerca THEN vel IS atras;
+    RULE 21: IF s0 IS cerca THEN vel IS muylento;
     
-    RULE 22: IF s0 IS mid THEN vel IS slow;
-    RULE 30: IF s1 IS verynear THEN rot IS muyder;
-    RULE 31: IF s2 IS verynear THEN rot IS der;
-    RULE 32: IF s2 IS near THEN rot IS der;
-    RULE 40: IF s8 IS verynear THEN rot IS muyizq;
-    RULE 41: IF s7 IS verynear THEN rot IS izq;
-    RULE 42: IF s7 IS near THEN rot IS izq;
+    RULE 22: IF s0 IS mid THEN vel IS lento;
+    RULE 30: IF s1 IS muycerca THEN rot IS muyder;
+    RULE 31: IF s2 IS muycerca THEN rot IS der;
+    RULE 32: IF s2 IS cerca THEN rot IS der;
+    RULE 40: IF s8 IS muycerca THEN rot IS muyizq;
+    RULE 41: IF s7 IS muycerca THEN rot IS izq;
+    RULE 42: IF s7 IS cerca THEN rot IS izq;
 
 
-    RULE 50: IF sig IS med THEN rot IS cen;
+    RULE 50: IF sig IS cen THEN rot IS cen;
     RULE 60: IF sig IS der AND sig IS esquina THEN rot IS esquinader;
     RULE 61: IF sig IS der AND sig IS NOT esquina THEN rot IS der;
-    RULE 62: IF sig IS med THEN rot IS cen;
     RULE 64: IF sig IS izq AND sig IS NOT esquina THEN rot IS izq;
     RULE 63: IF sig IS izq AND sig IS esquina THEN rot IS esquinaizq;
 
