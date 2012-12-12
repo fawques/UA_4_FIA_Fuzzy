@@ -177,6 +177,9 @@ RULEBLOCK No1
     RULE 64: IF sig IS izq AND sig IS NOT esquina THEN rot IS izq;
     RULE 63: IF sig IS izq AND sig IS esquina THEN rot IS esquinaizq;
 
+    RULE 70: If s7 IS muycerca AND s0 IS muylejos AND s1 IS muylejos THEN vel IS muylento,rot IS muyizq;
+    RULE 71: If s2 IS muycerca AND s0 IS muylejos AND s8 IS muylejos THEN vel IS muylento,rot IS muyder;
+
     RULE 110: IF s8 IS rozando THEN rot IS muyizq, vel IS atras;
     //RULE 111: IF s7 IS rozando THEN rot IS muyizq;
     RULE 120: IF s1 IS rozando THEN rot IS muyder, vel IS atras;
