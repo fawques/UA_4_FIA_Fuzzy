@@ -128,7 +128,8 @@ END_DEFUZZIFY
 
 DEFUZZIFY rot // entre -5 y 5 rad/s
     TERM esquinaizq :=  (0.8,0)(1.6,1)(2.4,0);
-    TERM muyizq   :=    (-5,0) (0,0) (2.5,0.5) (3.5,1) (5,1);
+    TERM muymuyizq   :=    (-5,0) (0,0) (5,0) (10,1);
+    TERM muyizq   :=    (-5,0) (0,0) (2.5,0.5) (3.5,1) (5,1) (5.01,0);
     TERM izq   :=    (-5,0) (0,0) (1.5,1) (3.5,1) (5,0);
     TERM muypocoizq    :=    (-5,0)(-2.5,0) (-0.5,0) (0,1) (0.5,1)(1.5,0) (2.5,0) (5,0);
     TERM pocoizq    :=    (-5,0)(-2.5,0) (-0.5,0) (0,1) (1.5,1) (2.5,0.5) (5,0);
@@ -137,7 +138,8 @@ DEFUZZIFY rot // entre -5 y 5 rad/s
     TERM muypocoder    :=    (-5,0) (-2.5,0) (-1.5,0)(-0.5,1) (0,1) (0.5,0);
     TERM pocoder    :=    (-5,0) (-2.5,0.5) (-1.5,1) (0,1) (0.5,0);
     TERM der   :=    (-5,0) (-3.5,1) (-1.5,1) (0,0);
-    TERM muyder   :=    (-5,1) (-3.5,1) (-2.5,0.5) (0,0);
+    TERM muyder   :=    (-5.01,0) (-5,1) (-3.5,1) (-2.5,0.5) (0,0);
+    TERM muymuyder   :=    (-10,1) (-5,0) (0,0);
     TERM esquinader :=  (-2.4,0)(-1.6,1)(-0.8,0);
 
     // Use 'Center Of Gravity' defuzzification method
@@ -164,11 +166,11 @@ RULEBLOCK No1
     //RULE 21: IF s0 IS cerca THEN vel IS muylento;
     
     //RULE 22: IF s0 IS mid THEN vel IS lento;
-    RULE 30: IF s1 IS muycerca THEN rot IS muyder;
-    RULE 31: IF s2 IS muycerca THEN rot IS der;
+    RULE 30: IF s1 IS muycerca THEN rot IS muymuyder,vel IS casiparado;
+    RULE 31: IF s2 IS muycerca THEN rot IS der,vel IS muylento;
     //RULE 32: IF s2 IS cerca THEN rot IS der;
-    RULE 40: IF s8 IS muycerca THEN rot IS muyizq;
-    RULE 41: IF s7 IS muycerca THEN rot IS izq;
+    RULE 40: IF s8 IS muycerca THEN rot IS muymuyizq,vel IS casiparado;
+    RULE 41: IF s7 IS muycerca THEN rot IS izq,vel IS muylento;
     //RULE 42: IF s7 IS cerca THEN rot IS izq;
 
 
