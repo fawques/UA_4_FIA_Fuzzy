@@ -161,9 +161,7 @@ RULEBLOCK No1
     RULE 10: IF s0 IS muylejos AND s1 IS muylejos AND s2 IS muylejos AND s7 IS muylejos AND s8 IS muylejos THEN vel IS muyrapido;
     RULE 11: IF s0 IS NOT muylejos OR s1 IS NOT muylejos OR s2 IS NOT muylejos OR s7 IS NOT muylejos OR s8 IS NOT muylejos THEN vel IS lento;
     RULE 20: IF s0 IS cerca THEN vel IS atras;
-    //RULE 21: IF s0 IS cerca THEN vel IS muylento;
     
-    //RULE 22: IF s0 IS mid THEN vel IS lento;
     RULE 30: IF s1 IS muycerca THEN rot IS muyder;
     RULE 31: IF s2 IS muycerca THEN rot IS der;
     RULE 40: IF s8 IS muycerca THEN rot IS muyizq;
