@@ -182,10 +182,9 @@ RULEBLOCK No1
     RULE 71: If s1 IS muycerca AND s2 IS muycerca AND s0 IS muylejos AND s8 IS muylejos THEN vel IS atras,rot IS muyder;
 
     RULE 110: IF s8 IS rozando THEN rot IS muyizq, vel IS atras;
-    //RULE 111: IF s7 IS rozando THEN rot IS muyizq;
+    RULE 111: IF s7 IS rozando THEN rot IS muyizq;
     RULE 120: IF s1 IS rozando THEN rot IS muyder, vel IS atras;
-    //RULE 121: IF s2 IS rozando THEN rot IS muyder;
-    //RULE 999: IF s0 IS cerca OR s0 IS NOT cerca THEN vel IS lento;
+    RULE 121: IF s2 IS rozando THEN rot IS muyder;
 
 END_RULEBLOCK
 
