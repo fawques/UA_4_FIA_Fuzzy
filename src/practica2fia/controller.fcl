@@ -22,8 +22,6 @@ FUZZIFY s0
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
     TERM muycerca   := (0,1) (0.3,0);
     TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
-    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM lejos    := (0.6,0) (1.5,1);
     TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
@@ -31,8 +29,6 @@ FUZZIFY s1
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
     TERM muycerca   := (0,1) (0.3,0);
     TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
-    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM lejos    := (0.6,0) (1.5,1);
     TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
@@ -40,44 +36,6 @@ FUZZIFY s2
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
     TERM muycerca   := (0,1) (0.3,0);
     TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
-    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM lejos    := (0.6,0) (1.5,1);
-    TERM muylejos    := (1,0) (1.5,1);
-END_FUZZIFY
-
-FUZZIFY s3
-    TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM muycerca   := (0,1) (0.3,0);
-    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
-    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM lejos    := (0.6,0) (1.5,1);
-    TERM muylejos    := (1,0) (1.5,1);
-END_FUZZIFY
-
-FUZZIFY s4
-    TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM muycerca   := (0,1) (0.3,0);
-    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
-    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM lejos    := (0.6,0) (1.5,1);
-    TERM muylejos    := (1,0) (1.5,1);
-END_FUZZIFY
-
-FUZZIFY s5
-    TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM muycerca   := (0,1) (0.3,0);
-    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
-    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM lejos    := (0.6,0) (1.5,1);
-    TERM muylejos    := (1,0) (1.5,1);
-END_FUZZIFY
-
-FUZZIFY s6
-    TERM rozando    := (0,1) (0.1,1) (0.11,0);
-    TERM muycerca   := (0,1) (0.3,0);
-    TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
-    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM lejos    := (0.6,0) (1.5,1);
     TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
@@ -85,8 +43,6 @@ FUZZIFY s7
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
     TERM muycerca   := (0,1) (0.3,0);
     TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
-    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM lejos    := (0.6,0) (1.5,1);
     TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
@@ -94,8 +50,6 @@ FUZZIFY s8
     TERM rozando    := (0,1) (0.1,1) (0.11,0);
     TERM muycerca   := (0,1) (0.3,0);
     TERM cerca   := (0,1) (0.3,0.5) (0.5,0.5) (0.7,0);
-    TERM mid   := (0,0) (0.375,0) (0.75,1) (1.125,0);
-    TERM lejos    := (0.6,0) (1.5,1);
     TERM muylejos    := (1,0) (1.5,1);
 END_FUZZIFY
 
@@ -112,12 +66,8 @@ END_FUZZIFY
 //EJEMPLO de definición NO VINCULANTE
 DEFUZZIFY vel // entre 0 y 2.5 m/s
     TERM atras   := (-1,1) (-0.01,1) (0,0);
-    TERM rapido   := (0,0) (2.5,1);
-    TERM muyrapido   := (0,0) (2,0) (2.01,1) (2.5,1);
-    TERM normal    := (0,0) (1.25,1) (2.5,0);
+    TERM rapido   := (0,0) (2,0) (2.01,1) (2.5,1);
     TERM lento   := (0,0) (0.01,1) (1.5,0) (2.5,0);
-    TERM muylento   := (0,0) (0.01,1) (1,0) (2.5,0);
-    TERM casiparado   := (0,0) (0.01,1) (0.2,0) (2.5,0);
     // Use 'Center Of Gravity' defuzzification method
     METHOD : COG;
     // Default value is 1 (if no rule activates defuzzifier)
@@ -130,12 +80,7 @@ DEFUZZIFY rot // entre -5 y 5 rad/s
     TERM esquinaizq :=  (0.8,0)(1.6,1)(2.4,0);
     TERM muyizq   :=    (-5,0) (0,0) (2.5,0.5) (3.5,1) (5,1);
     TERM izq   :=    (-5,0) (0,0) (1.5,1) (3.5,1) (5,0);
-    TERM muypocoizq    :=    (-5,0)(-2.5,0) (-0.5,0) (0,1) (0.5,1)(1.5,0) (2.5,0) (5,0);
-    TERM pocoizq    :=    (-5,0)(-2.5,0) (-0.5,0) (0,1) (1.5,1) (2.5,0.5) (5,0);
     TERM cen    :=    (-5,0) (-1.25,0) (-0.5,1) (0.5,1) (1.25,0);
-    TERM muycen    :=    (-0.01,0) (0,1) (0.01,0);
-    TERM muypocoder    :=    (-5,0) (-2.5,0) (-1.5,0)(-0.5,1) (0,1) (0.5,0);
-    TERM pocoder    :=    (-5,0) (-2.5,0.5) (-1.5,1) (0,1) (0.5,0);
     TERM der   :=    (-5,0) (-3.5,1) (-1.5,1) (0,0);
     TERM muyder   :=    (-5,1) (-3.5,1) (-2.5,0.5) (0,0);
     TERM esquinader :=  (-2.4,0)(-1.6,1)(-0.8,0);
@@ -158,7 +103,7 @@ RULEBLOCK No1
     ACCU : MAX;
 
     //Definir las reglas del SE
-    RULE 10: IF s0 IS muylejos AND s1 IS muylejos AND s2 IS muylejos AND s7 IS muylejos AND s8 IS muylejos THEN vel IS muyrapido;
+    RULE 10: IF s0 IS muylejos AND s1 IS muylejos AND s2 IS muylejos AND s7 IS muylejos AND s8 IS muylejos THEN vel IS rapido;
     RULE 11: IF s0 IS NOT muylejos OR s1 IS NOT muylejos OR s2 IS NOT muylejos OR s7 IS NOT muylejos OR s8 IS NOT muylejos THEN vel IS lento;
     RULE 20: IF s0 IS cerca THEN vel IS atras;
     
