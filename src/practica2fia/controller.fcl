@@ -166,10 +166,8 @@ RULEBLOCK No1
     //RULE 22: IF s0 IS mid THEN vel IS lento;
     RULE 30: IF s1 IS muycerca THEN rot IS muyder;
     RULE 31: IF s2 IS muycerca THEN rot IS der;
-    //RULE 32: IF s2 IS cerca THEN rot IS der;
     RULE 40: IF s8 IS muycerca THEN rot IS muyizq;
     RULE 41: IF s7 IS muycerca THEN rot IS izq;
-    //RULE 42: IF s7 IS cerca THEN rot IS izq;
 
 
     RULE 50: IF sig IS cen THEN rot IS cen;
