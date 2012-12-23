@@ -73,7 +73,7 @@ DEFUZZIFY vel // entre 0 y 2.5 m/s
     // Use 'Center Of Gravity' defuzzification method
     METHOD : COG;
     // Default value is 1 (if no rule activates defuzzifier)
-    DEFAULT := 1;
+    DEFAULT := 0.5;
 END_DEFUZZIFY
 
 
